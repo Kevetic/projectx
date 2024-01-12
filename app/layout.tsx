@@ -5,6 +5,8 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -34,7 +36,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <NavBar />
-            {children}
+            <Suspense fallback={<Loading />}>{children}</Suspense>
             <Footer />
           </ThemeProvider>
         </body>

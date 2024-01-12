@@ -18,24 +18,18 @@ const tempArray = [
 function CaroselHome() {
   return (
     <div className="relative">
-      <h1 className="absolute z-10 right-1/2 bottom-0 font-bold text-7xl text-primary">
+      <h1 className="absolute z-10 right-10 sm:right-1/2 top: 0 sm:bottom-10 font-bold text-7xl text-primary">
         Recents
       </h1>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="w-full max-w-xs sm:max-w-md"
-      >
+      <Carousel className="w-full max-w-xs sm:max-w-lg">
         <CarouselContent>
           {tempArray.map((item) => (
             <CarouselItem key={item} className="flex justify-center">
               <Image
                 src={item}
                 alt="item"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 className="rounded-lg shadow-lg shadow-primary"
               />
             </CarouselItem>
