@@ -9,7 +9,7 @@ import { UserButton } from "@clerk/nextjs";
 
 function NavBar() {
   return (
-    <div className="flex flex-row-reverse justify-between items-center w-full text-primary p-5">
+    <div className="flex flex-row-reverse justify-between items-center w-full text-primary p-3 border bg-secondary shadow-sm shadow-primary fixed z-20">
       <ul className="flex gap-5 items-center">
         <Link href={"/Product"}>Product</Link>
         <Link href={"/about"}>About</Link>

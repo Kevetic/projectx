@@ -1,11 +1,14 @@
-import Hero from "@/components/hero/Hero";
+import CaroselHome from "@/components/carousel/page";
+import Hero from "@/components/hero/page";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <main className="w-full m-auto p-5">
+    <main className="w-full m-auto p-5 space-y-24">
       <Hero />
-      <Button>Hello World</Button>
+      <div className=" flex justify-center">
+        <CaroselHome />
+      </div>
     </main>
   );
 }

@@ -11,7 +11,7 @@ function Hero() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 2 }}
-      className="w-full border flex flex-col justify-evenly relative items-center text-7xl sm:text-8xl md:text-9xl min-h-96 mt-24 rounded-lg shadow-md shadow-accent"
+      className="w-full border flex flex-col justify-evenly relative items-center text-7xl sm:text-8xl md:text-9xl min-h-[500px] mt-20 rounded-lg shadow-sm shadow-accent"
     >
       <p>Welcome To</p>
       <h1 className="text-primary z-10 font-bold">Vetic Moto</h1>
