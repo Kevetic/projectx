@@ -6,8 +6,12 @@ import addProduct from "../actions/addProduct";
 
 function AddProduct() {
   return (
-    <>
-      <AddProductForm action={addProduct}>
+    <div className="flex w-11/12 justify-center flex-col m-auto p-20">
+      <h1 className="text-5xl text-center m-20">Add Product</h1>
+      <AddProductForm
+        action={addProduct}
+        className="grid grid-cols-2 gap-5 justify-center items-center"
+      >
         <AddproductInput name="name" type="text" placeholder="Prodcut Name" />
         <AddproductInput
           name="description"
@@ -16,9 +20,9 @@ function AddProduct() {
         />
         <AddproductInput name="imgUrl" type="url" placeholder="Product Image" />
         <AddproductInput name="price" type="number" placeholder="price" />
-        <AddProductButton type="submit" text="submit" />
+        <AddProductButton type="submit" text="submit" className=" mt-5 w-1/2" />
       </AddProductForm>
-    </>
+    </div>
   );
 }
 

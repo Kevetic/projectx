@@ -9,12 +9,19 @@ interface ButtonProps {
   text: string | ReactNode;
   onClick?: () => void;
   actionButton?: boolean;
+  className?: string;
 }
 
-function AddProductButton({ type, text, onClick, actionButton }: ButtonProps) {
+function AddProductButton({
+  type,
+  text,
+  onClick,
+  actionButton,
+  className,
+}: ButtonProps) {
   return (
     <>
-      <Button onClick={onClick} type={type}>
+      <Button onClick={onClick} type={type} className={className}>
         {text}
       </Button>
     </>
