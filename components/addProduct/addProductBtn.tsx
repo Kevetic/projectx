@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 interface ButtonProps {
   type?: "button" | "submit" | "reset";
   text: string | ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   actionButton?: boolean;
 }
 
