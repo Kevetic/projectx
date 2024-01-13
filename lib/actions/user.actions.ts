@@ -1,18 +1,17 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
-import { connectToDatabase } from "@/lib/database";
-import User from "@/lib/database/models/user.model";
-import Order from "@/lib/database/models/order.model";
-import Event from "@/lib/database/models/event.model";
+import { connectToDataBase } from "../database";
+import User from "../database/models/user.model";
+import Order from "../database/models/order.model";
+import Event from "../database/models/event.model";
 import { handleError } from "@/lib/utils";
 
 import { CreateUserParams, UpdateUserParams } from "@/types";
 
 export async function createUser(user: CreateUserParams) {
   try {
-    await connectToDatabase();
+    await connectToDataBase();
 
     const newUser = await User.create(user);
     return JSON.parse(JSON.stringify(newUser));
@@ -23,7 +22,7 @@ export async function createUser(user: CreateUserParams) {
 
 export async function getUserById(userId: string) {
   try {
-    await connectToDatabase();
+    await connectToDataBase();
 
     const user = await User.findById(userId);
 
@@ -36,7 +35,7 @@ export async function getUserById(userId: string) {
 
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
-    await connectToDatabase();
+    await connectToDataBase();
 
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
@@ -51,7 +50,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
 
 export async function deleteUser(clerkId: string) {
   try {
-    await connectToDatabase();
+    await connectToDataBase();
 
     // Find user to delete
     const userToDelete = await User.findOne({ clerkId });
