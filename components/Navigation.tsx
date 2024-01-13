@@ -13,6 +13,21 @@ import MobileNav from "./mobileNav/MobileNav";
 function NavBar() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
+  const userOptions = () => {
+    return (
+      <>
+        <SignedOut>
+          <Button asChild className="rounded-full" size="lg">
+            <Link href={"/sign-in"}>Login</Link>
+          </Button>
+        </SignedOut>
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+      </>
+    );
+  };
+
   const sharedNav = () => {
     return (
       <>
@@ -24,20 +39,16 @@ function NavBar() {
       </>
     );
   };
+
   return (
     <>
-      <div className="lg:hidden flex justify-between items-center p-5">
-        <div className="flex gap-5">{sharedNav()}</div>
+      <div className="lg:hidden flex flex-row-reverse w-full p-5">
         <div className="flex gap-5">
-          <MobileNav />
-          <SignedOut>
-            <Button asChild className="rounded-full" size="lg">
-              <Link href={"/sign-in"}>Login</Link>
-            </Button>
-          </SignedOut>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          <MobileNav
+            sharedNav={sharedNav}
+            isDarkMode={isDarkMode}
+            userOptions={userOptions}
+          />
         </div>
       </div>
       <div className="lg:flex flex-row-reverse justify-between items-center w-full text-primary p-3 border  shadow-sm shadow-primary fixed z-20 hidden">
@@ -45,14 +56,7 @@ function NavBar() {
           <Link href={"/products"}>Product</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/cart"}>Cart</Link>
-          <SignedOut>
-            <Button asChild className="rounded-full" size="lg">
-              <Link href={"/sign-in"}>Login</Link>
-            </Button>
-          </SignedOut>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          {userOptions()}
         </ul>
         <div className="flex gap-5">{sharedNav()}</div>
       </div>

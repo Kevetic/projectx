@@ -14,9 +14,6 @@ export function ModeToggle({
   isDarkMode: boolean;
 }) {
   const { setTheme } = useTheme();
-  React.useEffect(() => {
-    setTheme("dark");
-  }, []);
 
   return (
     <Button

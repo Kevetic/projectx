@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Carousel,
@@ -7,6 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import { Button } from "../ui/button";
+import addProduct from "@/app/actions/addProduct";
 
 const tempArray = [
   "https://plus.unsplash.com/premium_photo-1675896084254-dcb626387e1e?q=80&w=1870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -18,6 +21,7 @@ const tempArray = [
 function CaroselHome() {
   return (
     <div className="relative">
+      <Button onClick={() => addProduct()}>test buttons</Button>
       <h1 className="absolute z-10 right-10 sm:right-1/2 top: 0 sm:bottom-10 font-bold text-7xl text-primary">
         Recents
       </h1>
