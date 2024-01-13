@@ -1,5 +1,5 @@
 "use client";
-import { ModeToggle } from "@/components/ui/sun-moon";
+import { ModeToggle } from "@/components/ui/darkToggle";
 import Image from "next/image";
 import H2R from "@/app/assets/H2R.png";
 import React, { useState } from "react";

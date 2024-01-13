@@ -134,12 +134,15 @@ const ThemePicker = ({ isDarkMode }: ThemePickerProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{position}</Button>
+        <Button variant="outline">{position ? position : "Kawasaki"}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Choose Your Team</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+        <DropdownMenuRadioGroup
+          value={position ? position : "Kawasaki"}
+          onValueChange={setPosition}
+        >
           <DropdownMenuRadioItem value="Kawasaki">
             Kawasaki
           </DropdownMenuRadioItem>
