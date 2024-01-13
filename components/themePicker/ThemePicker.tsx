@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,10 +11,14 @@ import {
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 
-const ThemePicker = ({ isDarkMode }) => {
+interface ThemePickerProps {
+  isDarkMode: boolean;
+}
+
+const ThemePicker = ({ isDarkMode }: ThemePickerProps) => {
   const [position, setPosition] = useState("Kawasaki");
 
-  const changeColor = () => {
+  const changeColor = useCallback(() => {
     const root = document.documentElement;
     let newColors = {};
 
@@ -118,14 +122,14 @@ const ThemePicker = ({ isDarkMode }) => {
       };
     }
 
-    Object.entries(newColors).forEach(([key, value]) => {
-      root.style.setProperty(key, value);
+    Object.entries(newColors).forEach(([key, value]: [string, unknown]) => {
+      root.style.setProperty(key, value as string);
     });
-  };
+  }, [position, isDarkMode]);
 
   useEffect(() => {
     changeColor();
-  }, [position, isDarkMode]);
+  }, [position, isDarkMode, changeColor]);
 
   return (
     <DropdownMenu>

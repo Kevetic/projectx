@@ -6,8 +6,7 @@ import User from "../database/models/user.model";
 import Order from "../database/models/order.model";
 import Event from "../database/models/event.model";
 import { handleError } from "@/lib/utils";
-
-import { CreateUserParams, UpdateUserParams } from "@/types";
+import { CreateUserParams, UpdateUserParams } from "@/app/types";
 
 export async function createUser(user: CreateUserParams) {
   try {
