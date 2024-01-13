@@ -29,7 +29,7 @@ function NavBar() {
       <div className="lg:hidden flex justify-between items-center p-5">
         <div className="flex gap-5">{sharedNav()}</div>
         <div className="flex gap-5">
-          <MobileNav homeBtn={H2R} />
+          <MobileNav />
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
               <Link href={"/sign-in"}>Login</Link>
