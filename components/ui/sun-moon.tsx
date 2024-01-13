@@ -4,8 +4,15 @@ import * as React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+type SetIsDarkModeType = (value: boolean) => void;
 
-export function ModeToggle({ setIsDarkMode, isDarkMode }) {
+export function ModeToggle({
+  setIsDarkMode,
+  isDarkMode,
+}: {
+  setIsDarkMode: SetIsDarkModeType;
+  isDarkMode: boolean;
+}) {
   const { setTheme } = useTheme();
   React.useEffect(() => {
     setTheme("dark");

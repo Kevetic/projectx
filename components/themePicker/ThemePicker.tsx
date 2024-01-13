@@ -16,7 +16,7 @@ interface ThemePickerProps {
 }
 
 const ThemePicker = ({ isDarkMode }: ThemePickerProps) => {
-  const [position, setPosition] = useState("Kawasaki");
+  const [position, setPosition] = useState("");
 
   const changeColor = useCallback(() => {
     const root = document.documentElement;
