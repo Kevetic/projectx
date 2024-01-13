@@ -19,8 +19,16 @@ function AddProductForm({
   const ref = useRef<HTMLFormElement>(null);
   return (
     <div>
-      <form>
-        <AddproductInput />
+      <form
+        className={className}
+        onSubmit={onSubmit}
+        ref={ref}
+        action={async (FormData) => {
+          await action(FormData);
+          ref.current?.reset();
+        }}
+      >
+        {children}
       </form>
     </div>
   );

@@ -3,11 +3,12 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/utils/prisma";
 
-const addProduct = async () => {
-  const post = await prisma.post.create({
+const addProduct = async (formData: FormData) => {
+  const input = formData.get("input") as string;
+
+  await prisma.product.create({
     data: {
-      title: "This title",
-      body: "Body",
+      name: input,
     },
   });
 };
