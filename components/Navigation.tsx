@@ -28,7 +28,7 @@ function NavBar() {
     );
   };
 
-  const sharedNav = () => {
+  const subNav = () => {
     return (
       <>
         <Link href={"/"} className="hover:animate-pulse">
@@ -40,25 +40,35 @@ function NavBar() {
     );
   };
 
+  const mainNav = () => {
+    return (
+      <>
+        <Link href={"/add-product"}>Add Product</Link>
+        <Link href={"/products"}>Product</Link>
+        <Link href={"/about"}>About</Link>
+        <Link href={"/cart"}>Cart</Link>
+      </>
+    );
+  };
+
   return (
     <>
-      <div className="lg:hidden flex flex-row-reverse w-full p-5">
+      <div className="lg:hidden flex flex-row-reverse w-full p-5 fixed z-30">
         <div className="flex gap-5">
           <MobileNav
-            sharedNav={sharedNav}
+            mainNav={mainNav}
+            subNav={subNav}
             isDarkMode={isDarkMode}
             userOptions={userOptions}
           />
         </div>
       </div>
-      <div className="lg:flex flex-row-reverse justify-between items-center w-full text-primary p-3 border  shadow-sm shadow-primary fixed z-20 hidden">
+      <div className="lg:flex bg-secondary flex-row-reverse justify-between items-center w-full text-primary p-3 border shadow-sm z-20 hidden">
         <ul className="flex gap-5 items-center">
-          <Link href={"/products"}>Product</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/cart"}>Cart</Link>
+          {mainNav()}
           {userOptions()}
         </ul>
-        <div className="flex gap-5">{sharedNav()}</div>
+        <div className="flex gap-5">{subNav()}</div>
       </div>
     </>
   );

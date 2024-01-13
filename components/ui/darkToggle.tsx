@@ -15,6 +15,10 @@ export function ModeToggle({
 }) {
   const { setTheme } = useTheme();
 
+  React.useEffect(() => {
+    setTheme("");
+  });
+
   return (
     <Button
       variant="outline"
