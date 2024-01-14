@@ -12,7 +12,6 @@ import MobileNav from "./mobileNav/MobileNav";
 
 function NavBar() {
   const user = useUser();
-  console.log(user);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const userOptions = () => {
