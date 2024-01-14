@@ -6,7 +6,7 @@ import { prisma } from "@/utils/prisma";
 const addProduct = async (formData: FormData) => {
   const name = formData.get("name") as string;
   const description = formData.get("description") as string;
-  const imgUrl = formData.get("imgUrl")?.toString();
+  const imgUrl = formData.get("imgUrl")?.toString() || undefined;
   const price = Number(formData.get("price") || 0);
 
   await prisma.product.create({

@@ -4,15 +4,21 @@ import Image from "next/image";
 import H2R from "@/app/assets/H2R.png";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import ThemePicker from "./themePicker/ThemePicker";
 import MobileNav from "./mobileNav/MobileNav";
+import SignInButton from "./signinButton/SignInButton";
+import { useSession } from "next-auth/react";
 
 function NavBar() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const { data: session } = useSession();
 
   const userOptions = () => {
-    return <></>;
+    return (
+      <>
+        <SignInButton session={session} />
+      </>
+    );
   };
 
   const subNav = () => {
@@ -30,7 +36,7 @@ function NavBar() {
   const mainNav = () => {
     return (
       <>
-        <Link href={"/add-product"}>Add Product</Link>
+        {session ? <Link href={"/add-product"}>Add Product</Link> : null}
         <Link href={"/products"}>Product</Link>
         <Link href={"/about"}>About</Link>
         <Link href={"/cart"}>Cart</Link>
