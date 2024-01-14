@@ -4,29 +4,15 @@ import Image from "next/image";
 import H2R from "@/app/assets/H2R.png";
 import React, { useState } from "react";
 import Link from "next/link";
-import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { Button } from "./ui/button";
-import { UserButton } from "@clerk/nextjs";
 import ThemePicker from "./themePicker/ThemePicker";
 import MobileNav from "./mobileNav/MobileNav";
 
 function NavBar() {
-  const user = useUser();
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const userOptions = () => {
-    return (
-      <>
-        <SignedOut>
-          <Button asChild className="rounded-full" size="lg">
-            <Link href={"/sign-in"}>Login</Link>
-          </Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>
-      </>
-    );
+    return <></>;
   };
 
   const subNav = () => {
@@ -44,9 +30,7 @@ function NavBar() {
   const mainNav = () => {
     return (
       <>
-        {user.isSignedIn ? (
-          <Link href={"/add-product"}>Add Product</Link>
-        ) : null}
+        <Link href={"/add-product"}>Add Product</Link>
         <Link href={"/products"}>Product</Link>
         <Link href={"/about"}>About</Link>
         <Link href={"/cart"}>Cart</Link>

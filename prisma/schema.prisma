@@ -19,3 +19,11 @@ model Product {
   createdAt   DateTime @default(now())
   updateAt    DateTime @updatedAt
 }
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  externalId String   @unique
+  attributes Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
