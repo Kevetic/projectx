@@ -18,14 +18,16 @@ async function HomeProducts() {
           <h1 className="text-2xl md:text-3xl">{x.name}</h1>
           <Badge>{formatPrice(x.price as number)}</Badge>
           <div>
-            <Image
-              src={x.imgUrl as string}
-              width={400}
-              height={400}
-              alt="image"
-              priority
-              className="p-5"
-            />
+            <Link href={"/products/" + x.id}>
+              <Image
+                src={x.imgUrl as string}
+                width={400}
+                height={400}
+                alt="image"
+                priority
+                className="p-5"
+              />
+            </Link>
           </div>
           <p>{x.description}</p>
         </div>
