@@ -13,12 +13,13 @@ import {
 
 function SignInButton({ session }: any) {
   if (session && session.user) {
+    console.log(session.user.image);
     return (
       <>
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
-              <AvatarImage src={session.user.image ?? ""} />
+              <AvatarImage src={session.user.image} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
